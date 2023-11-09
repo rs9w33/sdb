@@ -2,7 +2,7 @@ import geemap, ee
 from eepackages.applications import bathymetry
 
 region = 'braamspunt'
-df = pd.read_csv(r"D:\bathydem\wwf-turtles-guianas\guianas-bbox.csv")
+df = pd.read_csv(r"guianas-bbox.csv")
 bb = df[df.name == region]
 
 xx, XX = bb.minx.values[0],bb.maxx.values[0]
@@ -48,7 +48,7 @@ while i.format('YYYY-MM-dd').getInfo() != te:
     r = request.urlretrieve(
         mndwi, 
         os.path.join(
-        r'D:\bathydem\wwf-turtles-guianas\data\sdb-intertidal',
+        r'D:\bathydem\wwf-turtles-guianas\data\sdb-intertidal', # change to location you want to export the images to
         f'{region}-sdb-intertidal-{istr}-mndwi.tiff')
     )
 
@@ -62,7 +62,7 @@ while i.format('YYYY-MM-dd').getInfo() != te:
     r = request.urlretrieve(
         ndwi, 
         os.path.join(
-        r'D:\bathydem\wwf-turtles-guianas\data\sdb-intertidal',
+        r'D:\bathydem\wwf-turtles-guianas\data\sdb-intertidal', # change to location you want to export the images to
         f'{region}-sdb-intertidal-{istr}-ndwi.tiff')
     )
     i = i.advance(3, 'month')
